@@ -1,0 +1,15 @@
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\bin\Debug\net6.0\CS_Obj2Map.exe
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\bin\Debug\net6.0\CS_Obj2Map.deps.json
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\bin\Debug\net6.0\CS_Obj2Map.runtimeconfig.json
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\bin\Debug\net6.0\CS_Obj2Map.dll
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\bin\Debug\net6.0\ref\CS_Obj2Map.dll
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\bin\Debug\net6.0\CS_Obj2Map.pdb
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.csproj.AssemblyReference.cache
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.AssemblyInfoInputs.cache
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.AssemblyInfo.cs
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.csproj.CoreCompileInputs.cache
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.dll
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\ref\CS_Obj2Map.dll
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.pdb
+C:\Users\Matt\Desktop\CODING - MISC\CS_Obj2Map\obj\Debug\net6.0\CS_Obj2Map.genruntimeconfig.cache

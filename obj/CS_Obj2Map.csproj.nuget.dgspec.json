@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Matt\\Documents\\GitHub\\CS_Obj2Map\\CS_Obj2Map.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Matt\\Documents\\GitHub\\CS_Obj2Map\\CS_Obj2Map.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Matt\\Documents\\GitHub\\CS_Obj2Map\\CS_Obj2Map.csproj",
+        "projectName": "CS_Obj2Map",
+        "projectPath": "C:\\Users\\Matt\\Documents\\GitHub\\CS_Obj2Map\\CS_Obj2Map.csproj",
+        "packagesPath": "C:\\Users\\Matt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matt\\Documents\\GitHub\\CS_Obj2Map\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Matt\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.133\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

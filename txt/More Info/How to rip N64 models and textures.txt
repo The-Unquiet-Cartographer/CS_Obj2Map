@@ -1,0 +1,24 @@
+Requires:
+*	1964 Emulator
+	*	Version 1.1 is bundled with Lemmy's plugin.
+	*	1964 Ultrafast version 3.0 confirmed to work.
+*	Lemmy's video debugger plugin, AKA LemD3D8.dll
+	*	In the emulator plugin menu, this will appear as "Nemu64 Graphics (combine debug)".
+*	Moltard's N64 Mapping Tool
+*	A folder in the root of the C:\ drive named "VRML"
+
+===INSTRUCTIONS===
+Ripping models:
+*	Make sure your emulator is using Lemmy's graphics plugin.
+*	Run your game, and find a model or location that you would like to rip.
+*	Pause the emulator. With 1964, you can use the F3 key.
+*	Open the options for the graphics plugin, and check "Export VRML".
+*	Return to the game and resume gameplay. The emulator will dump all of the model and texture information that is currently loaded to the C:\VRML folder.
+*	Pause the game again, open the options menu, and uncheck "Export VRML".
+*	Extract the data from the C:\VRML folder to a directory of your choice.
+*	If you are ripping large models or entire levels, you will have to move around in-game and repeat this process until you've ripped everything that you need to.
+
+Converting models to .OBJ format:
+*	Lemmy's plugin will export the model data in .WRL format, but you can convert the data to .OBJ format with Moltard's N64 Mapping Tool.
+*	The converter is found in the first tab, and is self-explanatory. You may need to check "Reverse Vertex Order", which will have the effect of inverting the model's polygons.
+	*	007 The World Is Not Enough requires Reverse Vertex Order for the level geometry, but not for in-game assets like character models.

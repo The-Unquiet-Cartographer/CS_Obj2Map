@@ -1,0 +1,37 @@
+
+# ConsoleManager: Input for "more information", where information on generating obj files for various games is held.
+# # Add info for Perfect Dark to GoldenEye / Perfect Dark file.
+/*
+    1   Exporting levels and textures from other games.
+        *   GoldenEye 007 & Perfect Dark (N64)
+        *   Lego Racers (PC)
+        *   Marathon trilogy (PC)
+        *   Spyro trilogy (PSX)
+        *   Star Wars Jedi Knight & Mysteries of the Sith
+        *   Misc N64 games                                      ✓
+    2   Converting textures for use in other games.
+    3   Creating a texture WAD for Doom.
+    4   Creating a texture WAD for Quake.
+    5   Importing textures to GTK Radiant.
+        *   Just a thought: With my knowledge can't I just export all the textures from the various Quake 1 WADs and use them in Radiant now?
+        *   Just that I never figured out how to use Radiant for Quake 1 mapping is all.
+*/
+
+# User settings file which saves last user settings.
+
+# Incorporate FileReader functions into InputManager.
+# Incorporate FileWriter functions into OutputCompiler. Rename OutputCompiler to OutputManager.
+
+DONE (I think):
+# ConsoleManager: Only display .map related options when .map is the selected output file type?
+# ConsoleManager: Setting for outputting single or multiple files (boolean outputMultiple already exists in GeneralSettings class).
+# Exclude textures setting (Model excludes textures when decompiling fileData)
+# # Added function for trimming unused vertices from final model(s).
+
+DONE (definitely)
+# ConsoleManager: Multiple files to one obj.
+# ConsoleManager: Accept input without fileExtension but with '/' or '\' on the end to search a folder and convert all objects contained therein.
+# Optimise .map setting.
+# # Presents options for WorldCraft and GTKRadiant.
+# Make ProgressReporter a non-static, generalized class that can be used in multiple locations.
+# # Functions have generic names such as AddStage();

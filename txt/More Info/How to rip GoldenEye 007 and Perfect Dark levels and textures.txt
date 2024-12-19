@@ -1,0 +1,53 @@
+Requires:
+    *   GoldenEye Setup Editor (latest version)
+	*	GoldenEye 007/Perfect Dark ROM
+
+===INSTRUCTIONS===
+    *   You will have to configure the GoldenEye Setup Editor and obtain the ROMs on your own.
+        *   IIRC, the ROMs are not required to be from a specific version of the game, but may need to be byteswapped.
+            *   This is a simple process and the GoldenEye setup editor includes tools for doing this (Tools > Trim/Flip ROM Tools).
+
+How to export GoldenEye 007 levels and textures:
+    *   Open the GoldenEye Setup Editor and start a new project (File > New) using the desired level as a base.
+        *   The multiplayer levels are as follows:
+            *   Ump_setupameZ.set       Library             0.6599999666
+            *   Ump_setuparchZ.set      Archives            0.5067857504
+            *   Ump_setuparkZ.set       Facility            1.2064800262
+            *   Ump_setupashZ.set       Stack               0.6599999666
+            *   Ump_setupcaveZ.set      Caverns             0.2682428658
+            *   Ump_setupcradZ.set      Cradle              0.2357142866
+            *   Ump_setupcrypZ.set      Egyptian            0.2560800016
+            *   Ump_setupdishZ.set      Temple              0.4714285731
+            *   Ump_setupimpZ.set       Basement            0.6599999666
+            *   Ump_setupoatZ.set       Caves               0.1414285749
+            *   Ump_setuprefZ.set       Complex             0.9428571463
+            *   Ump_setupsevbZ.set      Bunker 2            0.5393143296
+            *   Ump_setupstatueZ.set    Statue              0.1072028652
+        *   The single-player levels are as follows:
+            *   UsetuparchZ.set         Archives            0.5067857504
+            *   UsetuparkZ.set          Facility            1.2064800262
+            *   UsetupaztZ.set          Aztec               0.3530056775
+            *   UsetupcatZ.set          Zoinkity's Citadel  0.5763920546
+            *   UsetupcaveZ.set         Caverns             0.2682428658
+            *   UsetupcontrolZ.set      Control             0.4988657236
+            *   UsetupcradZ.set         Cradle              0.2357142866
+            *   UsetupcrypZ.set         Egyptian            0.2560800016
+            *   UsetupdamZ.set          Dam                 0.2336399853
+            *   UsetupdepoZ.set         Depot               0.2184788734
+            *   UsetupdestZ.set         Frigate             0.4475742877
+            *   UsetupjunZ.set          Jungle              0.0946628526
+            *   UsetuplenZ.set          Cuba                0.0946628526
+            *   UsetuppeteZ.set         Streets             0.3418799937
+            *   UsetuprunZ.set          Runway              0.0895714313
+            *   UsetupsevbunkerZ.set    Bunker 1            0.5393143296
+            *   UsetupsevbZ.set         Bunker 2            0.5393143296
+            *   UsetupsevxbZ.set        Surface 2           0.4544571340
+            *   UsetupsevxZ.set         Surface 1           0.4544571340
+            *   UsetupsiloZ.set         Silo                0.4725600183
+            *   UsetupstatueZ.set       Statue              0.1072028652
+            *   UsetuptraZ.set          Train               0.1501971334
+    *   Go to Visual Edit Mode (Edit setup > Visual Editor).
+    *   Switch mode to Edit Room Positions Mode (Mode > Switch Mode to > Edit Room Positions Mode).
+    *   Right click anywhere in the visual editor window, and click "Export Full Level to .obj".
+
+How to export Perfect Dark levels and textures:

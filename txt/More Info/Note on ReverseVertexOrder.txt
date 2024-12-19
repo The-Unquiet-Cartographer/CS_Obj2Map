@@ -1,0 +1,16 @@
+What is the vertex order?
+*   Each polygon references three vertices that form a triangle.
+*   Model files may list the vertices in a clockwise or anti-clockwise order.
+    *   That is to say, if a model file lists vertices A, B, and C in a clockwise order, and the same vertices appear in that configuraton when you look at them, then the resultant polygon should be facing YOU.
+    *   If the vertices are listed in the reverse order, or you are looking at the vertices from the other side, then the polygon will be facing AWAY from you.
+*   The order that a model file lists its vertices depends on the software being used, which is why it is sometimes necessary to reverse the vertex order when working with model files.
+    *   When ripping models from the game 007 The World Is Not Enough on Nintendo 64, I found that the level geometry and the in-game assets used different vertex orders.
+        *   As such, the exported model files would contain normal level geometry, but the in-game assets would be inside-out.
+        *   This may be a quirk of the game, the console, or the software used to rip/convert the models - I don't know at this point.
+
+What is the Invert Normals option?
+*   The Invert Normals option leaves the vertex order as-is when importing the model file, only affecting the output process.
+*   Basically, it just inverts the facing of each polygon without affecting the vertex order.
+*   This option may be required when outputting to .map format, due to the way that format defines brushes as a set of intersecting planes.
+    *   If the planes are facing the wrong way, the brush will essentially be "inside-out", and the level editing software won't be able to do anything with it.
+    
