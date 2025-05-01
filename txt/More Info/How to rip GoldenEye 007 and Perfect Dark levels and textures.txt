@@ -7,47 +7,104 @@ Requires:
         *   IIRC, the ROMs are not required to be from a specific version of the game, but may need to be byteswapped.
             *   This is a simple process and the GoldenEye setup editor includes tools for doing this (Tools > Trim/Flip ROM Tools).
 
-How to export GoldenEye 007 levels and textures:
+How to export GoldenEye 007/Perfect Dark levels and textures:
     *   Open the GoldenEye Setup Editor and start a new project (File > New) using the desired level as a base.
-        *   The multiplayer levels are as follows:
-            *   Ump_setupameZ.set       Library             0.6599999666
-            *   Ump_setuparchZ.set      Archives            0.5067857504
-            *   Ump_setuparkZ.set       Facility            1.2064800262
-            *   Ump_setupashZ.set       Stack               0.6599999666
-            *   Ump_setupcaveZ.set      Caverns             0.2682428658
-            *   Ump_setupcradZ.set      Cradle              0.2357142866
-            *   Ump_setupcrypZ.set      Egyptian            0.2560800016
-            *   Ump_setupdishZ.set      Temple              0.4714285731
-            *   Ump_setupimpZ.set       Basement            0.6599999666
-            *   Ump_setupoatZ.set       Caves               0.1414285749
-            *   Ump_setuprefZ.set       Complex             0.9428571463
-            *   Ump_setupsevbZ.set      Bunker 2            0.5393143296
-            *   Ump_setupstatueZ.set    Statue              0.1072028652
-        *   The single-player levels are as follows:
-            *   UsetuparchZ.set         Archives            0.5067857504
-            *   UsetuparkZ.set          Facility            1.2064800262
-            *   UsetupaztZ.set          Aztec               0.3530056775
-            *   UsetupcatZ.set          Zoinkity's Citadel  0.5763920546
-            *   UsetupcaveZ.set         Caverns             0.2682428658
-            *   UsetupcontrolZ.set      Control             0.4988657236
-            *   UsetupcradZ.set         Cradle              0.2357142866
-            *   UsetupcrypZ.set         Egyptian            0.2560800016
-            *   UsetupdamZ.set          Dam                 0.2336399853
-            *   UsetupdepoZ.set         Depot               0.2184788734
-            *   UsetupdestZ.set         Frigate             0.4475742877
-            *   UsetupjunZ.set          Jungle              0.0946628526
-            *   UsetuplenZ.set          Cuba                0.0946628526
-            *   UsetuppeteZ.set         Streets             0.3418799937
-            *   UsetuprunZ.set          Runway              0.0895714313
-            *   UsetupsevbunkerZ.set    Bunker 1            0.5393143296
-            *   UsetupsevbZ.set         Bunker 2            0.5393143296
-            *   UsetupsevxbZ.set        Surface 2           0.4544571340
-            *   UsetupsevxZ.set         Surface 1           0.4544571340
-            *   UsetupsiloZ.set         Silo                0.4725600183
-            *   UsetupstatueZ.set       Statue              0.1072028652
-            *   UsetuptraZ.set          Train               0.1501971334
+        *   You can also choose (Open Setup Uncompressed) to view the level complete with objects.
+            *   In the file browser, navigate to [GoldenEye Setup Editor directory]/GE/Setup or [GoldenEye Setup Editor directory]/PD/pdsetup to choose a setup file.
     *   Go to Visual Edit Mode (Edit setup > Visual Editor).
     *   Switch mode to Edit Room Positions Mode (Mode > Switch Mode to > Edit Room Positions Mode).
     *   Right click anywhere in the visual editor window, and click "Export Full Level to .obj".
 
-How to export Perfect Dark levels and textures:
+How to export in-game objects for each level:
+    *   Instead of opening a new project, choose (Open Setup Uncompressed) to load a level complete with objects.
+    *   Go to Visual Edit Mode (Edit setup > Visual Editor).
+    *   In the default mode (Edit Objects Mode), right click in the visual editor window somewhere NOT on an in-game object, and click (Output To Obj > Output Models from Level to .obj).
+        *   The Perfect Dark editor does not offer you the option to export all in-game objects; instead you will have to right-click on each and export them individually (), then combine them into a single file.
+
+Notes:
+    *   Changing the scale when opening a project in the GoldenEye Setup Editor makes no difference to the output.
+
+SETUP FILES
+GoldenEye 007 multiplayer levels
+    *   Ump_setupameZ.set       Library             0.6599999666    
+    *   Ump_setuparchZ.set      Archives            0.5067857504
+    *   Ump_setuparkZ.set       Facility            1.2064800262
+    *   Ump_setupashZ.set       Stack               0.6599999666
+    *   Ump_setupcaveZ.set      Caverns             0.2682428658
+    *   Ump_setupcradZ.set      Cradle              0.2357142866
+    *   Ump_setupcrypZ.set      Egyptian            0.2560800016
+    *   Ump_setupdishZ.set      Temple              0.4714285731
+    *   Ump_setupimpZ.set       Basement            0.6599999666
+    *   Ump_setupoatZ.set       Caves               0.1414285749
+    *   Ump_setuprefZ.set       Complex             0.9428571463
+    *   Ump_setupsevbZ.set      Bunker 2            0.5393143296
+    *   Ump_setupstatueZ.set    Statue              0.1072028652
+
+GoldenEye 007 single-player levels
+    *   UsetuparchZ.set         Archives            0.5067857504
+    *   UsetuparkZ.set          Facility            1.2064800262
+    *   UsetupaztZ.set          Aztec               0.3530056775
+    *   UsetupcatZ.set          Zoinkity's Citadel  0.5763920546
+    *   UsetupcaveZ.set         Caverns             0.2682428658
+    *   UsetupcontrolZ.set      Control             0.4988657236
+    *   UsetupcradZ.set         Cradle              0.2357142866
+    *   UsetupcrypZ.set         Egyptian            0.2560800016
+    *   UsetupdamZ.set          Dam                 0.2336399853
+    *   UsetupdepoZ.set         Depot               0.2184788734
+    *   UsetupdestZ.set         Frigate             0.4475742877
+    *   UsetupjunZ.set          Jungle              0.0946628526
+    *   UsetuplenZ.set          Cuba                0.0946628526
+    *   UsetuppeteZ.set         Streets             0.3418799937
+    *   UsetuprunZ.set          Runway              0.0895714313
+    *   UsetupsevbunkerZ.set    Bunker 1            0.5393143296
+    *   UsetupsevbZ.set         Bunker 2            0.5393143296
+    *   UsetupsevxbZ.set        Surface 2           0.4544571340
+    *   UsetupsevxZ.set         Surface 1           0.4544571340
+    *   UsetupsiloZ.set         Silo                0.4725600183
+    *   UsetupstatueZ.set       Statue              0.1072028652
+    *   UsetuptraZ.set          Train               0.1501971334
+
+Perfect Dark multiplayer levels
+    *   Ump_setuparecZZ.set     Ravine
+    *   Ump_setupcradZ.set      Pipes
+    *   Ump_setupcrypZ.set      G5 Multi
+    *   Ump_setupjunZ.set       Temple
+    *   Ump_setupmp10Z.set      Sewers
+    *   Ump_setupmp11Z.set      Felicity
+    *   Ump_setupmp12Z.set      Fortress
+    *   Ump_setupmp13Z.set      Villa Multi
+    *   Ump_setupmp15Z.set      Grid
+    *   Ump_setupmp1Z.set       Base
+    *   Ump_setupmp3Z.set       Area 52
+    *   Ump_setupmp4Z.set       Warehouse
+    *   Ump_setupmp5Z.set       Car Park
+    *   Ump_setupmp9Z.set       Ruins
+    *   Ump_setupoatZ.set       Skedar Multi
+    *   Ump_setuprefZ.set       Complex
+    *   Ump_setupsevbZ.set      Retaking the Institute Multi
+
+Perfect Dark single-player levels
+    *   UsetupameZ.set          Defection
+    *   UsetuparkZ.set          Extraction
+    *   UsetupateZ.set          Duel
+    *   UsetupaztZ.set          Crash Site
+    *   UsetupcaveZ.set         Air Base
+    *   UsetupdamZ.set          Pelagic II
+    *   UsetupdepoZ.set         G5 Building
+    *   UsetupdishZ.set         CI Training
+    *   UsetupearZ.set          Investigation
+    *   UsetupeldZ.set          Villa
+    *   UsetupimpZ.set          Carrington Institute Defense
+    *   UsetupleeZ.set          Attack Ship
+    *   UsetuplipZ.set          Rescue
+    *   UsetuplueZ.set          Infiltration
+    *   UsetupoatZ.set          Skedar
+    *   UsetuppamZ.set          Deep Sea
+    *   UsetuppeteZ.set         Chicago
+    *   UsetupritZ.set          Air Force One
+    *   UsetupsevbZ.set         Retaking the Institute
+    *   UsetupsevZ.set          Maian SOS
+    *   UsetupshoZ.set          Skedar Ruins
+    *   UsetupstatZ.set         War
+    *   UsetuptraZ.set          Escape
+    *   UsetupwaxZ.set          Mr. Blonde's Revenge

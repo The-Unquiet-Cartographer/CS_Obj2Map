@@ -1,26 +1,35 @@
-
 # ConsoleManager: Input for "more information", where information on generating obj files for various games is held.
-# # Add info for Perfect Dark to GoldenEye / Perfect Dark file.
 /*
     1   Exporting levels and textures from other games.
-        *   GoldenEye 007 & Perfect Dark (N64)
         *   Lego Racers (PC)
         *   Marathon trilogy (PC)
         *   Spyro trilogy (PSX)
         *   Star Wars Jedi Knight & Mysteries of the Sith
-        *   Misc N64 games                                      ✓
-    2   Converting textures for use in other games.
+        *   GoldenEye 007 & Perfect Dark (N64)                  ~                           ✓
+            *   No apparent way to export objects in Perfect Dark mode.                     ✓
+            *   Have to make a note about doing them individually then combining them.      ✓
+        *   Misc N64 games                                                                  ✓
+    2   Converting textures for use in other games.                                         ✓
     3   Creating a texture WAD for Doom.
     4   Creating a texture WAD for Quake.
-    5   Importing textures to GTK Radiant.
+    5   Create textures for Quake II.                           ~ (See "Importing textures to GTK Radiant")
+    5   Importing textures to GTK Radiant.                      ~ (See "Create textures for Quake II")
         *   Just a thought: With my knowledge can't I just export all the textures from the various Quake 1 WADs and use them in Radiant now?
         *   Just that I never figured out how to use Radiant for Quake 1 mapping is all.
+
+//To get a scale factor divide the desired size by the current size.
+
 */
 
 # User settings file which saves last user settings.
 
-# Incorporate FileReader functions into InputManager.
-# Incorporate FileWriter functions into OutputCompiler. Rename OutputCompiler to OutputManager.
+
+# BMP/image palette converter
+
+// Incorporate FileReader functions into InputManager.
+// Incorporate FileWriter functions into OutputCompiler. Rename OutputCompiler to OutputManager.
+
+
 
 DONE (I think):
 # ConsoleManager: Only display .map related options when .map is the selected output file type?

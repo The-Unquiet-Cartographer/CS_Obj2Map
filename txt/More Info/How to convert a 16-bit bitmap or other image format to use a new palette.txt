@@ -1,0 +1,31 @@
+Most older games - or at least the ones under the purview of this editor - use 16-bit palettised bitmaps for their textures. What this means is that the textures cannot be directly transferred between these older game engines without first adapting them to the target game's palette.
+
+Requires:
+    *   GIMP (GNU Image Manipulation Program)
+        *   GIMP has the advantage of being able to convert images by selecting the closest approximate color on the chosen color palette for each pixel.
+        *   Other software may be able to do this but I am most familiar with GIMP.
+    *   An image palette in one of the following formats:
+        *   .pal
+        *   .lmp
+        *   .act
+        *   These are just the formats that I have used; there are almost certainly other compatible formats but I'm not going to make an exhaustive list.
+
+===INSTRUCTIONS===
+How to import your palette to GIMP:
+    *   Go to (Windows > Dockable Dialogues > Palettes), right-click on the list, and select "Import Palette".
+    *   Select "Palette file" as your source and click in the box to browse for your file.
+    *   Confirm your choice of file, then click "Import".
+
+How to convert your image to use the imported palette:
+    *   Open your image in GIMP (File > Open).
+    *   Convert your image to the new palette:
+        *   Go to (Image > Mode > Indexed), select "Use Custom Palette", and click on the image to find the palette you imported.
+        *   Select your palette.
+        *   Make sure that "Remove unused colors from colormap" is unchecked.
+        *   Click "Convert" to convert the image.
+    *   Export your image:
+        *   Go to (File > Export As).
+        *   Change the format to Windows BMP Image (.bmp) if it is not already.
+        *   Click "Export".
+        *   In the following dialogue box, it is vitally important that you check "Do not write color space information" under "Compatability Options".
+        *   Click "Export" once again.

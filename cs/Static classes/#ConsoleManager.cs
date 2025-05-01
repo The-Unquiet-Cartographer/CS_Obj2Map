@@ -10,14 +10,15 @@ public static class ConsoleManager {
     private static class InputOption {
         public static char scaleFactor {get{return 's';}}
         public static char rounding {get{return 'r';}}
-        public static char subdivideFaces {get{return 'f';}}
+        public static char subdivideFaces {get{return 't';}}
         public static char invertNormals {get{return 'n';}}
         public static char reverseVertexOrder {get{return 'v';}}
         public static char swapYZCoordinates {get{return 'c';}}
-        public static char marathonCeilingFix {get{return 'x';}}
-        public static char outputFormat {get{return 'o';}}
-        public static char optimiseFormat {get{return 'm';}}
-        public static char brushThickness {get{return 't';}}
+        public static char marathonCeilingFix {get{return 'm';}}
+        public static char outputFormat {get{return 'f';}}
+        public static char optimiseFormat {get{return 'o';}}
+        public static char brushThickness {get{return 'b';}}
+        public static char strictTextureAlignment {get{return 'a';}}
         public static char singleOutput {get{return 'i';}}
         public static char excludeTexture {get{return 'e';}}
         public static char preset {get{return 'p';}}
@@ -61,20 +62,24 @@ public static class ConsoleManager {
         Console.WriteLine();
         WriteColoredLine(ConsoleColor.Cyan, "Parameter:\t\t\tArgument:\tRange of values:\tCurrent value:");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("Scale factor:\t\t\t "                +InputOption.scaleFactor        +"\t\t[-???...???]\t\t"             +gameSettings.scaleFactor);
-        Console.WriteLine("Round to nearest [x] units:\t "      +InputOption.rounding           +"\t\t[-0.0000001...???]\t"         +generalSettings.rounding);
-        Console.WriteLine("Reverse vertex order:\t\t "          +InputOption.reverseVertexOrder +"\t\t[true/false]\t\t"             +gameSettings.reverseVertexOrder);
-        Console.WriteLine("Invert face normals:\t\t "           +InputOption.invertNormals      +"\t\t[true/false]\t\t"             +gameSettings.invertNormals);
-        Console.WriteLine("Subdivide faces into triangles:\t "  +InputOption.subdivideFaces     +"\t\t[true/false]\t\t"             +gameSettings.subdivideFaces);
-        Console.WriteLine("Swap YZ coordinates:\t\t "           +InputOption.swapYZCoordinates  +"\t\t[true/false]\t\t"             +gameSettings.swapYZCoordinates);
-        Console.WriteLine("Marathon ceiling fix:\t\t "          +InputOption.marathonCeilingFix +"\t\t[true/false]\t\t"             +gameSettings.marathonCeilingFix);
-        Console.WriteLine("Output format:\t\t\t "               +InputOption.outputFormat       +"\t\t[.map]\t\t\t"                 +'.'+generalSettings.outputFormat);
+        Console.WriteLine("Scale factor:\t\t\t "                +InputOption.scaleFactor            +"\t\t[-???...???]\t\t"             +gameSettings.scaleFactor);
+        Console.WriteLine("Round to nearest [x] units:\t "      +InputOption.rounding               +"\t\t[0.0000001...???]\t"         +generalSettings.rounding);
+        Console.WriteLine("Reverse vertex order:\t\t "          +InputOption.reverseVertexOrder     +"\t\t[true/false]\t\t"             +gameSettings.reverseVertexOrder);
+        Console.WriteLine("Invert face normals:\t\t "           +InputOption.invertNormals          +"\t\t[true/false]\t\t"             +gameSettings.invertNormals);
+        Console.WriteLine("Subdivide faces into triangles:\t "  +InputOption.subdivideFaces         +"\t\t[true/false]\t\t"             +gameSettings.subdivideFaces);
+        Console.WriteLine("Swap YZ coordinates:\t\t "           +InputOption.swapYZCoordinates      +"\t\t[true/false]\t\t"             +gameSettings.swapYZCoordinates);
+        Console.WriteLine("Marathon ceiling fix:\t\t "          +InputOption.marathonCeilingFix     +"\t\t[true/false]\t\t"             +gameSettings.marathonCeilingFix);
+        Console.WriteLine("Output format:\t\t\t "               +InputOption.outputFormat           +"\t\t[.map]\t\t\t"                 +'.'+generalSettings.outputFormat);
         if (generalSettings.outputFormat == GeneralSettings.OutputFormat.map) {
-            Console.WriteLine("\tOptimise format:\t "               +InputOption.optimiseFormat     +"\t\t[WorldCraft/Radiant]\t"       +generalSettings.optimiseMap);
-            Console.WriteLine("\tBrush thickness:\t "               +InputOption.brushThickness     +"\t\t[1...???]\t\t"                +generalSettings.brushThickness);
+            Console.WriteLine("\tOptimise format:\t "               +InputOption.optimiseFormat         +"\t\t[WorldCraft_Legacy,\t"        +generalSettings.optimiseMap);
+            Console.WriteLine("\t\t\t\t"                                                                +"\t\t WorldCraft_Valve220,");
+            Console.WriteLine("\t\t\t\t"                                                                +"\t\t Radiant_Legacy,");
+            Console.WriteLine("\t\t\t\t"                                                                +"\t\t Radiant_Valve220]\t");
+            Console.WriteLine("\tBrush thickness:\t "               +InputOption.brushThickness         +"\t\t[1...???]\t\t"                +generalSettings.brushThickness);
+            Console.WriteLine("\tStrict texture alignment "         +InputOption.strictTextureAlignment +"\t\t[true/false]\t\t"             +generalSettings.strictTextureAlignment);
         }
-        Console.WriteLine("Single output file:\t\t "            +InputOption.singleOutput       +"\t\t[true/false]\t\t"             +generalSettings.singleOutput);
-        Console.WriteLine("Exclude textures:\t\t "              +InputOption.excludeTexture     +"\t\t[\"a.bmp\" \"b.bmp\" etc.]\t" +gameSettings.excludeTextures.Stringify());
+        Console.WriteLine("Single output file:\t\t "            +InputOption.singleOutput           +"\t\t[true/false]\t\t"             +generalSettings.singleOutput);
+        Console.WriteLine("Exclude textures:\t\t "              +InputOption.excludeTexture         +"\t\t[\"a.bmp\" \"b.bmp\" etc.]\t" +gameSettings.excludeTextures.Stringify());
 
     //DISPLAY SETTING PRESET OPTIONS
         {
@@ -121,6 +126,7 @@ public static class ConsoleManager {
                 else if (generalSettings.outputFormat == GeneralSettings.OutputFormat.map) {
                     if (_inputC == InputOption.brushThickness)          TryChangeOption_Int(input, ref generalSettings.brushThickness);
                     if (_inputC == InputOption.optimiseFormat)          TryChangeOption_Enum(input, ref generalSettings.optimiseMap);
+                    if (_inputC == InputOption.strictTextureAlignment)  TryChangeOption_Bool(input, ref generalSettings.strictTextureAlignment);
                 }
                 else {
                     ResetConsole(ConsoleColor.Red, "Bad input (argument not recognised).");
@@ -139,18 +145,19 @@ public static class ConsoleManager {
 
         //FILE PATH(S)
             else {
-                string FormatOutputDirectory (string _outputDirectory) {
+                string FormatOutputDirectoryPath (string _outputDirectory) {
                     if (_outputDirectory.EndsWith('\\') || _outputDirectory.EndsWith('/')) return _outputDirectory;
                     return _outputDirectory+"/";
                 }
                 WriteColoredLine(ConsoleColor.Yellow, "Working...");
                 if (generalSettings.singleOutput) {
                     Model model;
+                    MaterialLibrary materialLibrary;
                     string outputDirectory;
                     int filesConverted;
-                    if (InputManager.Import_AsSingle(input, gameSettings, generalSettings, out model, out outputDirectory, out filesConverted)) {
-                        string output = OutputCompiler.Compile_MAP(model, gameSettings.invertNormals, generalSettings.brushThickness, generalSettings.optimiseMap);
-                        string path = FormatOutputDirectory(outputDirectory)+model.name+".map";
+                    if (InputManager.Import_AsSingle(input, gameSettings, generalSettings, out model, out materialLibrary, out outputDirectory, out filesConverted)) {
+                        string output = OutputCompiler.Compile_MAP(model, materialLibrary, gameSettings.invertNormals, generalSettings.brushThickness, generalSettings.strictTextureAlignment, generalSettings.optimiseMap);
+                        string path = FormatOutputDirectoryPath(outputDirectory)+model.name+".map";
                         FileWriter.WriteFile(path, output);
                         ResetConsole(ConsoleColor.Green, "Successfully converted "+filesConverted+" files to a single output.");
                         return;
@@ -162,11 +169,12 @@ public static class ConsoleManager {
                 }
                 else {
                     Model[] models;
+                    MaterialLibrary[] materialLibraries;
                     string[] outputDirectories;
-                    if (InputManager.Import_AsMultiple(input, gameSettings, generalSettings, out models, out outputDirectories)) {
+                    if (InputManager.Import_AsMultiple(input, gameSettings, generalSettings, out models, out materialLibraries, out outputDirectories)) {
                         for (int i = 0; i < models.Length; i++) {
-                            string output = OutputCompiler.Compile_MAP(models[i], gameSettings.invertNormals, generalSettings.brushThickness, generalSettings.optimiseMap);
-                            string path = FormatOutputDirectory(outputDirectories[i])+models[i].name+".map";
+                            string output = OutputCompiler.Compile_MAP(models[i], materialLibraries[i], gameSettings.invertNormals, generalSettings.brushThickness, generalSettings.strictTextureAlignment, generalSettings.optimiseMap);
+                            string path = FormatOutputDirectoryPath(outputDirectories[i])+models[i].name+".map";
                             FileWriter.WriteFile(path, output);
                         }
                         ResetConsole(ConsoleColor.Green, "Successfully converted "+models.Length+" files.");

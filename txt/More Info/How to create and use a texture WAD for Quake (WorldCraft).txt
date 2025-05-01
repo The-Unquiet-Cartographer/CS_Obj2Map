@@ -1,0 +1,4 @@
+Open TexMex and create a new WAD or open an existing one.
+Import your bitmaps.
+Save as .wad to use the original Quake wad format.
+If using WorldCraft, (File > Save Copy > WAD3), and change the file extension to .hlwad to make it compatible with WorldCraft.

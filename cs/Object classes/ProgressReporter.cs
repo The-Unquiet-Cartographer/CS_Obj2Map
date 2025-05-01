@@ -6,6 +6,10 @@ public class ProgressReporter {
     private List<int> _stagesByStepCount = new List<int>();
     private int _currentStage = -1;
     private int _currentStep_overall = 0;
+/// <summary>
+/// Just a flag that can be set to help the user decide when to reset the ProgressReporter.
+/// </summary>
+    public bool processingMultiple{get; set;}
 
 
 
@@ -59,7 +63,7 @@ public class ProgressReporter {
     private int _progressBarProgress = 0;
     public void WriteProgressPerStep () {
         if (currentStep_thisStage == 1) {
-            Console.Write('|');
+            WriteColored(ConsoleColor.Yellow, "|");
             return;
         }
         int currentPctProgress_int = (int)currentStagePctProgress;
@@ -70,7 +74,7 @@ public class ProgressReporter {
         }
         else if (currentPctProgress_int == 0 && _progressBarProgress == 99){        //<== currentStagePctProgress automatically resets to zero when it reaches 100, so do this instead.
             _progressBarProgress = 0;
-            WriteColored(ConsoleColor.Cyan, "0\r\n");
+            WriteColored(ConsoleColor.Green, "0\r\n");
         }
     }
     private static void WriteColored (ConsoleColor c, string s) {
@@ -78,26 +82,26 @@ public class ProgressReporter {
         Console.Write(s);
         Console.ResetColor();
     }
+
+
 /*
-    public void WriteTotalProgress () {
-        string s = "|";
+    public void WriteTotalProgress (bool clearConsole = false) {
+        if (clearConsole) {
+            Console.Clear();
+            WriteProgressGuide();
+        }
+        WriteColored(ConsoleColor.Yellow, "|");
         float _totalPctProgress = totalPctProgress;
         for (int i = 0; i < 100; i+=10) {
             for (int j = 1; j < 10; j++) {
-                if (i+j <= _totalPctProgress) s += '+';
-                else s += '.';
+                if (i+j <= _totalPctProgress) WriteColored(ConsoleColor.White, "+");
+                else WriteColored(ConsoleColor.White, ".");
             }
-            if (i+10 <= _totalPctProgress) s += '0';
-            else s += '|';
+            if (i+10 <= _totalPctProgress) WriteColored(ConsoleColor.Yellow, "0");
+            else WriteColored(ConsoleColor.White, "|");
         }
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        WriteProgressGuide();
-        Console.WriteLine(s);
-        Console.ForegroundColor = ConsoleColor.White;
     }
 */
-
 
 
     private string LogEverything () {

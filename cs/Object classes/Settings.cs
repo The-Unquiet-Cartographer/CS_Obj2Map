@@ -16,17 +16,18 @@ public class GeneralSettings : Settings {
     [Range(0.0000001f, float.MaxValue)]public float rounding = 1f;
     public enum OutputFormat {map}
     public OutputFormat outputFormat = OutputFormat.map;
-    public enum Optimise_MAP {WorldCraft, Radiant}
-    public Optimise_MAP optimiseMap = Optimise_MAP.WorldCraft;
+    public enum Optimise_MAP {WorldCraft_Legacy, WorldCraft_Valve220, Radiant_Legacy, Radiant_Valve220}
+    public Optimise_MAP optimiseMap = Optimise_MAP.WorldCraft_Valve220;
     public bool singleOutput = true;
     [Range(1, int.MaxValue)]public int brushThickness = 8;
-
+    public bool strictTextureAlignment = false;
     public GeneralSettings () {
         this.rounding = 1f;
         this.outputFormat = OutputFormat.map;
-        this.optimiseMap = Optimise_MAP.WorldCraft;
+        this.optimiseMap = Optimise_MAP.WorldCraft_Valve220;
         this.singleOutput = true;
         this.brushThickness = 8;
+        this.strictTextureAlignment = false;
     }
 }
 

@@ -1,0 +1,9 @@
+This instructional assumes you are using GTKRadiant to make maps for Quake II.
+
+#REQUIRES:
+    *   Wally
+
+#INSTRUCTIONS
+    *   Create from scratch or convert any images you want to use as textures to .bmp format using the Quake II palette.
+    *   Import your .bmp file to Wally.
+    *   Export your file as a Quake II .wal format file to the the texture directory of the Quake II installation you are using for mapmaking.

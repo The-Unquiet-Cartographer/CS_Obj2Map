@@ -1,7 +1,7 @@
 public static class MarathonFix {
 
 /// <summary>
-/// Only checks each face against the one immediate preceeding it in the faces array, which is how Weiland exports .OBJs.
+/// Only checks each face against the one immediately preceeding it in the faces array, which is how Weiland exports .OBJs.
 /// </summary>
     public static void Quick (Model _model) {
         for (int i = 1; i < _model.faces.Length; i++) {

@@ -108,12 +108,24 @@ public struct Vector2 {
             v1._y + v2._y
         );
     }
+    public Vector2 Add (Vector2 v) {
+        return new Vector2 (
+            this._x + v._x,
+            this._y + v._y
+        );
+    }
     
 //SCALE (MULTIPLY) BY ANOTHER VECTOR
     public static Vector2 Scale2 (Vector2 v1, Vector2 v2) {
         return new Vector2 (
             v1._x * v2._x,
             v1._y * v2._y
+        );
+    }
+    public Vector2 Scale2 (Vector2 scalar) {
+        return new Vector2 (
+            this._x * scalar._x,
+            this._y * scalar._y
         );
     }
 
@@ -134,8 +146,8 @@ public struct Vector2 {
 //ROUND VECTOR COMPONENTS
     public Vector2 Round (float rounding) {
         return new Vector2 (
-            ExtensionMethods.FloatExtensions.Round(this._x, rounding),
-            ExtensionMethods.FloatExtensions.Round(this._y, rounding)
+            RoundF(this._x, rounding),
+            RoundF(this._y, rounding)
         );
     }
 
@@ -177,17 +189,49 @@ public struct Vector2 {
         );
     }
 
-/*
 //SIGNED  
 //  Using atan2.
 //  Returns value in radians.
 //  Left-handed and right-handed variants.
-    public static float SignedAngle_R (Vector3 axis, Vector3 v1, Vector3 v2) {
-        return MathF.Atan2(Vector3.Dot(Vector3.Cross(v1, v2), axis), Vector3.Dot(v1, v2));
+    public static float SignedAngle_L (Vector2 v1, Vector2 v2) {
+        float rad = MathF.Atan2(v2.y, v2.x) - MathF.Atan2(v1.y, v1.x);
+        while (rad < -MathF.PI) rad += MathF.PI*2;
+        while (rad > MathF.PI) rad -= MathF.PI*2;
+        return rad;
     }
-    public static float SignedAngle_L (Vector3 axis, Vector3 v1, Vector3 v2) {
-        return MathF.Atan2(Vector3.Dot(Vector3.Cross(v2, v1), axis), Vector3.Dot(v1, v2));
+    public static float SignedAngle_R (Vector2 v1, Vector2 v2) {
+        float rad = MathF.Atan2(v1.y, v1.x) - MathF.Atan2(v2.y, v2.x);
+        while (rad < -MathF.PI) rad += MathF.PI*2;
+        while (rad > MathF.PI) rad -= MathF.PI*2;
+        return rad;
     }
-*/
+
+//ROTATE VECTOR
+    public Vector2 Rotate_L (float angleInDegrees) {
+        float angleInRadians = DegreesToRadians(angleInDegrees);     //<== Okay, so we change it to radians; sue me.
+        float cos = MathF.Cos(angleInRadians);
+        float sin = MathF.Sin(angleInRadians);
+        return new Vector2(
+            this.x*cos - this.y*sin,
+            this.x*sin + this.y*cos
+        );
+    }
+
+//INTERSECTION
+    public static Vector2? Intersection (Vector2 pointA, Vector2 vectorA, Vector2 pointB, Vector2 vectorB) {
+    // Calculate the determinant of the matrix
+        float determinant = vectorA.x * -vectorB.y - vectorA.y * -vectorB.x;
+    //If lines are parallel return null
+        if (determinant == 0) return null;
+    // Solve the linear system to find t and s
+        float t = (pointB.x - pointA.x) * (-vectorB.y) - (pointB.y - pointA.y) * (-vectorB.x);
+        //float s = vectorA.x * (pointB.y - pointA.y) - vectorA.y * (pointB.x - pointA.x);
+        t /= determinant;
+        //s /= determinant;
+    // Calculate the intersection point
+        return new Vector2(pointA.x + t*vectorA.x, pointA.y + t*vectorA.y);
+        //return new Vector2(pointB.x + s * vectorB.x, pointB.y + s * vectorB.y);
+    }
+
 
 }

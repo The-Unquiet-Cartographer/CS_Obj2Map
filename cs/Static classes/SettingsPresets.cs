@@ -9,7 +9,8 @@ public static class SettingsPresets {
     public readonly static GameSettings goldenEye007 = new GameSettings {
         scaleFactor = 1f,
         reverseVertexOrder = false,
-        swapYZCoordinates = false
+        invertNormals = true,
+        swapYZCoordinates = true
     };
     public readonly static GameSettings marathon = new GameSettings {
         scaleFactor = 4f,

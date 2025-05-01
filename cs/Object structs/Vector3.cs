@@ -66,11 +66,21 @@ public struct Vector3 {
     }
 
 //CROSS PRODUCT OF TWO VECTORS
+/*
+*   Right-handed.
+*/
     public static Vector3 Cross (Vector3 v1, Vector3 v2) {
         return new Vector3 (
             (v1._y * v2._z) - (v1._z * v2._y),
             (v1._z * v2._x) - (v1._x * v2._z),
             (v1._x * v2._y) - (v1._y * v2._x)
+        );
+    }
+    public static Vector3 Cross_LeftHanded (Vector3 v1, Vector3 v2) {
+        return new Vector3 (
+            ((v1._y * v2._z) - (v1._z * v2._y)) * -1,
+            ((v1._z * v2._x) - (v1._x * v2._z)) * -1,
+            ((v1._x * v2._y) - (v1._y * v2._x)) * -1
         );
     }
 
@@ -123,6 +133,13 @@ public struct Vector3 {
             v1._z + v2._z
         );
     }
+    public Vector3 Add (Vector3 v) {
+        return new Vector3 (
+            this._x + v._x,
+            this._y + v._y,
+            this._z + v._z
+        );
+    }
     
 //SCALE (MULTIPLY) BY ANOTHER VECTOR
     public static Vector3 Scale3 (Vector3 v1, Vector3 v2) {
@@ -152,9 +169,9 @@ public struct Vector3 {
 //ROUND VECTOR COMPONENTS
     public Vector3 Round (float rounding) {
         return new Vector3 (
-            ExtensionMethods.FloatExtensions.Round(this._x, rounding),
-            ExtensionMethods.FloatExtensions.Round(this._y, rounding),
-            ExtensionMethods.FloatExtensions.Round(this._z, rounding)
+            RoundF(this._x, rounding),
+            RoundF(this._y, rounding),
+            RoundF(this._z, rounding)
         );
     }
 
@@ -179,13 +196,13 @@ public struct Vector3 {
     public static float UnsignedAngle (Vector3 v1, Vector3 v2) {
         float mag_0_1 = v1.magnitude;
         float mag_0_2 = v2.magnitude;
-        float mag_1_2 = GetDirection(v1, v2).magnitude;
+        float mag_1_2 = v1.DirectionTo(v2).magnitude;
         return CosC(mag_0_1, mag_0_2, mag_1_2);
     }
     public static float UnsignedAngle (Vector3 axis, Vector3 pt1, Vector3 pt2) {
-        float mag_0_1 = GetDirection(axis, pt1).magnitude;
-        float mag_0_2 = GetDirection(axis, pt2).magnitude;
-        float mag_1_2 = GetDirection(pt1, pt2).magnitude;
+        float mag_0_1 = axis.DirectionTo(pt1).magnitude;
+        float mag_0_2 = axis.DirectionTo(pt2).magnitude;
+        float mag_1_2 = pt1.DirectionTo(pt2).magnitude;
         return CosC(mag_0_1, mag_0_2, mag_1_2);
     }
 //  Get angle C
@@ -200,11 +217,21 @@ public struct Vector3 {
 //  Using atan2.
 //  Returns value in radians.
 //  Left-handed and right-handed variants.
-    public static float SignedAngle_R (Vector3 axis, Vector3 v1, Vector3 v2) {
+    public static float SignedAngle_L (Vector3 axis, Vector3 v1, Vector3 v2) {
+        axis = axis.normalized; v1 = v1.normalized; v2 = v2.normalized;
         return MathF.Atan2(Vector3.Dot(Vector3.Cross(v1, v2), axis), Vector3.Dot(v1, v2));
     }
-    public static float SignedAngle_L (Vector3 axis, Vector3 v1, Vector3 v2) {
+    public static float SignedAngle_R (Vector3 axis, Vector3 v1, Vector3 v2) {
+        axis = axis.normalized; v1 = v1.normalized; v2 = v2.normalized;
         return MathF.Atan2(Vector3.Dot(Vector3.Cross(v2, v1), axis), Vector3.Dot(v1, v2));
+    }
+
+//ROTATE VECTOR
+    public Vector3 Rotate_L_OlindeRodrigues (Vector3 axis, float angleInDegrees) {
+        float angleInRadians = DegreesToRadians(angleInDegrees);     //<== Okay, so we change it to radians; sue me.
+        return this.Scale1(MathF.Cos(angleInRadians))
+            .Add( Vector3.Cross(axis, this).Scale1(MathF.Sin(angleInRadians)) )
+            .Add( axis.Scale1(Vector3.Dot(axis, this)).Scale1(1-MathF.Cos(angleInRadians)) );
     }
 
 }
